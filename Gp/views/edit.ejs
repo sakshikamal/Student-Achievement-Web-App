@@ -1,0 +1,95 @@
+<%- include("partials/header") %>
+<style>
+    body{
+        background:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8ZWR1Y2F0aW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+
+    .ui{
+        color: coral;
+    }
+   .ui.main{
+       background-color:rgba(180,180,180,0.2);
+   }
+
+   .ui.huge.header{
+       color:black;
+       font-family:Georgia, 'Times New Roman', Times, serif;
+       font-size:x-large;
+       font-weight:100;
+       font-style:oblique;
+   }
+   label{
+       font-style: italic;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+
+   }
+   a{
+       color: black;
+   }
+
+</style>
+<div class="container" style="align-content: center;">
+    <h1 style="text-align: center;">Edit Achievement</h1>
+    <div class="ui main text container segment" style="width: 70%; align-items: flex-end;">
+        <div class="ui huge header">Edit Achievement for USN:"<%= ach.userid %>"</div>
+            <form class="ui form" action="/student/<%=user.userid%>/achievement/<%=ach._id%>?_method=PUT" method="POST"> 
+                <!-- Method override -->
+                <div class="field">
+                    <label>Type</label>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                        <input type="radio" name="ach[achtype]" checked="checked" value="Internship">
+                        <label>Internship</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                        <input type="radio" name="ach[achtype]" value="Project">
+                        <label>Project</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                        <input type="radio" name="ach[achtype]" value="Course">
+                        <label>Course</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="ach[achtype]" value="Technical Paper">
+                          <label>Technical Paper</label>
+                        </div>
+                      </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                        <input type="radio" name="ach[achtype]" value="Sports">
+                        <label>Sports</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                        <input type="radio" name="ach[achtype]" value="Co-curricular">
+                        <label>Co-curricular</label>
+                        </div>
+                    </div>
+                    </div>
+                
+                <div class="field">
+                    <label>Drive link</label>
+                    <input type="text" name="ach[link]" class="form-control" value="<%=ach.link%>">
+                </div>
+                <div class="field">
+                    <label>Description</label>
+                    <textarea name="ach[desc]" id="" cols="30" rows="5" required><%-ach.desc%></textarea>
+                </div>
+                <button type="submit" class="ui secondary button">Submit</button> 
+            </form>
+            <a href="/student/<%=user.userid%>">Go back</a>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer") %>
