@@ -1,0 +1,77 @@
+
+<%- include("partials/header") %>
+<style>
+  .ui.form{
+  
+                font-family: 'Neucha';
+                font-size: 25px;
+                
+            
+  }
+  .ui.huge{
+    font-family: 'Neucha';
+                font-size: 25px;
+  }
+
+</style>
+
+<div class="container" style="align-content: center;">
+    <h1 style="text-align: center;">Create a new Achievement</h1>
+    <div class="ui main text container segment" style="width: 70%; align-items: flex-end;">
+        <div class="ui huge header">New Achievement</div>
+        <form class="ui form" action="/student/<%=id%>/new" method="POST">
+                <div class="ui form">
+                    <div class="field">
+                        <label>USN</label>
+                        <input type="text" disabled name="ach[userid]" class="form-control"  value="<%=id%>">
+                    </div>
+                    <div class="grouped fields">
+                    <label>Type:</label>
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="ach[achtype]" checked="checked" value="Internship">
+                          <label>Internship</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="ach[achtype]" value="Project">
+                          <label>Project</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="ach[achtype]" value="Course">
+                          <label>Course</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="ach[achtype]" value="Sports">
+                          <label>Sports</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="ach[achtype]" value="Co-curricular">
+                          <label>Co-curricular</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <div class="field">
+                <label>Drive Link</label>
+                <input type="text" name="ach[link]" class="form-control" placeholder="Link to Drive">
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="ach[desc]" id="" cols="30" rows="5" placeholder="Description to the Achievement" required></textarea>
+            </div>
+            <button type="submit" class="ui secondary button">Submit</button> 
+        </form>
+
+        <a href="/student/<%=id%>">Go back</a>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

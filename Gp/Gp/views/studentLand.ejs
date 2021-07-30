@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Achievement App</title>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" type="css/text" href="public/stylessheets/app.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-image: url('https://images.unsplash.com/photo-1561653109-a66b52917e88?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHllbGxvdyUyMHBhaW50c3xlbnwwfHwwfHllbGxvd3w%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'); 
+            background-position: center;
+           
+            background-size: cover;
+            
+             
+        }
+      .item{
+        font-family: 'Neucha', serif;
+        font-size: 24px;
+        background: url('https://images.unsplash.com/photo-1586024844218-3fb8999ef6cf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fHBhcGVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+      }
+      .ui.main{
+        background-color: rgba(226, 212, 212,0.4);
+
+      }
+      </style>
+    
+    </head>
+    
+    <body>
+        <div class="ui fixed inverted menu">
+            <div class="ui container" >
+                <div class="header item"><i class="slideshare icon"></i>Hi, <%=user.username%>   <%=user.userid%></div>
+                <a href="/" class="item"><i class="home icon"></i>Home</a>
+                <a href="/student/<%=user.userid%>/new" class="item"><i class="pen square icon"></i>New Achievement</a>
+                <div class="right menu">
+                    <a class="ui item" href="/logout">
+                      Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="below navbar">
+
+          
+            <div class="ui main text container segment">
+           
+                    <br>
+                    <br>
+                    <!-- <h2>Student Details:</h2>
+                    <%=user.userid%>
+                    <br>
+                    <%=user.username%>  -->
+                        <div class="ui top-attached">
+                            <div class="item">
+                  
+                                <ol>
+                                        <% achs.forEach(ach => { %> 
+                                        <li><div class="content">
+                                            <p>Type: <%= ach.achtype %></p>
+                                        </div>
+                                        <div class="desciption">
+                                            <p>Description: <%= ach.desc %></p>
+                                        </div>
+                                        <div class="content">
+                                            <a href="<%=ach.link%>">Link to Drive folder</a>
+                                        </div>
+                                        <a class="ui secondary button" href="/student/<%=user.userid%>/achievement/<%=ach._id%>/edit" style="margin: 10px 0;">Edit</a>
+                                        
+                                        <form id="delete" action="/student/<%=user.userid%>/achievement/<%=ach._id%>?_method=DELETE" method="POST">
+                                            <button type="submit" class="ui secondary button">Delete</button> 
+                                        </form>
+                                        </li>
+                                        <br>
+                                        <br>
+                                        <% }); %>
+                                </ol>
+                            </div>
+                        </div>
+                    <a class="ui secondary button" onclick="window.print()" style="margin: 10px 0;">Generate Report</a> 
+                </div>
+
+
+
+
+
+
+            <%- include("partials/footer") %>
