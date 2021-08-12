@@ -25,10 +25,12 @@ git clone https://github.com/sakshikamal/Student-Achievement-Web-App
 - If running for the first time
   ```
   npm install
+  cd Gp1
   node index.js
   ```
 - Otherwise
   ```
+  cd Gp1
   node index.js
   ```
 ### Output
