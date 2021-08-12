@@ -1,4 +1,4 @@
-# Student-Achievement-Web-App
+# Student-Achievement-Management-System
 **Installation steps -<br />
 1)Pre requistes- Node.js, MongoDB, Express.js should be installed.<br />
 2)Clone into this repository and move to the Gp1 folder.<br />
